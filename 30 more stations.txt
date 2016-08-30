@@ -1,0 +1,30 @@
+1.	Pierre, SD
+2.	Great Bend, KS
+3.	Abiline, TX
+4.	Corpus Christie, TX
+5.	Casper, WY
+6.	Limon, CO
+7.	Billings, MT
+8.	Carson City, NV
+9.	Snowball Ranch, NV
+10.	Moab, UT
+11.	Baker, CA
+12.	Fresno, CA
+13.	San Luis Obispo, CA
+14.	Corvallis, OR
+15.	Malheur Refuge, OR
+16.	Sappho, WA
+17.	Spokane, WA
+18.	Minneapolis, MN
+19.	Harlan, IA
+20.	Hot Spring, AR
+21.	Lafayette, LA
+22.	Tifton, GA
+23.	Blacksburg, VA
+24.	Bangor, ME
+25.	Wellsboro, PA
+26.	Coshocton, OH
+27.	Franklin, TN
+28.	Avon Park, FL
+29.	Bismarck, ND
+30.	Scottsbluff, NE

@@ -58,7 +58,7 @@ def main():
         'USC00124715: IN LAFAYETTE 8 S':'40.2964,-86.9028',
         
         'USC00221094: MS BROOKHAVEN CITY':'31.5447,-90.4581',
-        'USC00231275: MO CANTON L&D 20':'40.1433,-91.5158',
+        'USC00231275: MO CANTON LandD 20':'40.1433,-91.5158',
         'USW00023050: NM ALBUQUERQUE INTL AP':'35.0419,-106.6156',
         'USC00340908: OK BOISE CITY 2 E':'36.7236,-102.4806',
 
@@ -74,7 +74,11 @@ def main():
         'USC00368905: PA TOWANDA 1 S':'41.7511,-76.443',
         'USC00451496: WA CLEARWATER':'47.5711,-124.2922'}
 
-	dateStart = "1980-01-01"
+
+	stations_test = {'USC00231275: MO CANTON L&D 20':'40.1433,-91.5158'}
+
+
+	dateStart = "2015-01-01"
 	dateEnd = "2016-01-01"
 
 	# set the stations to query
@@ -83,7 +87,6 @@ def main():
 	for station_key in stations.keys():
 		latitude = stations[station_key].split(',')[0]
 		longitude = stations[station_key].split(',')[1]
-                # replace characters that may cause problems when querying GEE
 		station_key = station_key.replace(": ", "_").replace(" ", "_").replace("/","_").replace("&","_")
 		print "Processing.... " + station_key + "   " + str(float(latitude)) + "    " + str(float(longitude))
 
@@ -131,12 +134,12 @@ def queryForGRIDMET(pointFeatureCollection,station_key,dateStart,dateEnd):
 
 	taskParams = {
 		'driveFolder':'GEE',
-		'driveFileNamePrefix':'GRIDMET_' + station_key,
+		'driveFileNamePrefix':'One_GRIDMET_' + station_key,
 		'fileFormat':'CSV'
 	}
 
 	# expor the feature colleciton
-	MyTry = ee.batch.Export.table(ee.FeatureCollection(mapCollection), 'GRIDMET_' + station_key, taskParams)
+	MyTry = ee.batch.Export.table(ee.FeatureCollection(mapCollection), 'One_GRIDMET_' + station_key, taskParams)
 
 	# set a time and progress update for the task 
 	MyTry.start()
@@ -183,12 +186,12 @@ def queryForDAYMET(pointFeatureCollection,station_key,dateStart,dateEnd):
 
 	taskParams = {
 		'driveFolder':'GEE',
-		'driveFileNamePrefix':'DAYMET_' + station_key,
+		'driveFileNamePrefix':'One_DAYMET_' + station_key,
 		'fileFormat':'CSV'
 	}
 
 	# expor the feature colleciton
-	MyTry = ee.batch.Export.table(ee.FeatureCollection(mapCollection), 'DAYMET_' + station_key, taskParams)
+	MyTry = ee.batch.Export.table(ee.FeatureCollection(mapCollection), 'One_DAYMET_' + station_key, taskParams)
 
 	# set a time and progress update for the task 
 	MyTry.start()
